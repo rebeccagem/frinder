@@ -19,16 +19,17 @@ module.exports = function (app) {
         var newFriend = req.body;
         newFriend.scores = newFriend.scores.map(Number);
 
-        // arrayOfDiffs = [];
-
-        var minimum = 50;
+        var minimum = 100;
         indexOfMin = 20;
+        //this loops though all friends in the array
         for (j = 0; j < friends.length; j++) {
             var difference = 0;
+            //this loops through each set of scores for each friend in the array and compares them to the new friend
             for (i = 0; i <= 2; i++) {
 
                 difference += Math.abs(newFriend.scores[i] - friends[j].scores[i]);
             }
+            //this checks the total difference against a minimum and only overrides it if it is lower
             if (difference <= minimum) {
                 minimum = difference;
                 indexOfMin = j;
@@ -38,6 +39,8 @@ module.exports = function (app) {
         }
         var bestMatch = JSON.stringify(friends[indexOfMin]);
         console.log(bestMatch);
+        res.json(bestMatch);
+        //this pushes the new friend to the friend array
         friends.push(newFriend);
 
     });
