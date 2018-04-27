@@ -49,3 +49,12 @@
     background-color: rgb(165, 206, 192);
     padding: 15px;
 }
+
+#submit {
+    margin-top:20px;
+    margin-bottom: 100px;
+}
+
+.navbar {
+    background-color: #ffffff;
+}
