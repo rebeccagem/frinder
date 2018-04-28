@@ -25,7 +25,7 @@ module.exports = function (app) {
         for (j = 0; j < friends.length; j++) {
             var difference = 0;
             //this loops through each set of scores for each friend in the array and compares them to the new friend
-            for (i = 0; i <= 2; i++) {
+            for (i = 0; i <= 4; i++) {
 
                 difference += Math.abs(newFriend.scores[i] - friends[j].scores[i]);
             }

@@ -45,6 +45,16 @@
     padding: 15px;
 }
 
+#pizza {
+    background-color: rgb(81, 163, 112);
+    padding: 15px;
+}
+
+#sandwhich {
+    background-color: rgb(17, 196, 139);
+    padding: 15px;
+}
+
 #japanese {
     background-color: rgb(165, 206, 192);
     padding: 15px;
@@ -57,4 +67,17 @@
 
 .navbar {
     background-color: #ffffff;
+}
+
+#match-img {
+    max-width:100%;
+}
+
+#match-name {
+    font-size: 70px;
+    text-align: center;
+}
+
+.modal-title {
+    text-align: center;
 }

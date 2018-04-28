@@ -43,7 +43,7 @@
                 </p>
             </div>
         </div>
-        <div class="row" id="italian">
+        <div class="row" id="pizza">
             <h4>How about pizza?</h4>
             <div class="slidecontainer">
                 <input type="range" min="1" max="10" value="5" class="slider" id="bRange">
@@ -61,6 +61,24 @@
                 </p>
             </div>
         </div>
+        <div class="row" id="sandwhich">
+            <h4>What about a simple sandwhich?</h4>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="10" value="5" class="slider" id="dRange">
+                <p>Value:
+                    <span id="dSlider"></span>
+                </p>
+            </div>
+        </div>
+        <div class="row" id="italian">
+            <h4>Do you enjoy italian?</h4>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="10" value="5" class="slider" id="eRange">
+                <p>Value:
+                    <span id="eSlider"></span>
+                </p>
+            </div>
+        </div>
     </div>
     <div class="container">
         <div class="row">
@@ -72,16 +90,18 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title">Best Match</h2>
+
                 </div>
                 <div class="modal-body">
+                    <h2 class="modal-title">You should grab a meal with </h2>
                     <h2 id="match-name"></h2>
                     <img id="match-img" src="" alt="">
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -130,6 +150,22 @@
             output3.innerHTML = this.value;
         }
 
+        var slider4 = document.getElementById("dRange");
+        var output4 = document.getElementById("dSlider");
+        output4.innerHTML = slider1.value;
+
+        slider4.oninput = function () {
+            output4.innerHTML = this.value;
+        }
+
+        var slider5 = document.getElementById("eRange");
+        var output5 = document.getElementById("eSlider");
+        output5.innerHTML = slider1.value;
+
+        slider5.oninput = function () {
+            output5.innerHTML = this.value;
+        }
+
         // gets answers from survey
         $("#submit").on("click", function (event) {
             event.preventDefault();
@@ -137,11 +173,11 @@
             var newFriend = {
                 name: $("#name").val().trim(),
                 image: $("#photo").val().trim(),
-                scores: [slider1.value, slider2.value, slider3.value,]
+                scores: [slider1.value, slider2.value, slider3.value,slider4.value,slider5.value]
 
 
             };
-            
+
             // posts new friend to api
             $.post("/api/friends", newFriend, function (data) {
                 data = JSON.parse(data);
@@ -156,7 +192,7 @@
                 } else console.log("error?")
             });
 
-console.log("lalalala: "+newFriend);
+            console.log("lalalala: " + newFriend);
 
 
         });
