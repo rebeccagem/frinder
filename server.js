@@ -7,7 +7,7 @@ var path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.envPORT ||3000;
+var PORT = process.env.PORT ||3000;
 
 //for css
 console.log(path.join(__dirname+ '/public'));
