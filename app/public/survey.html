@@ -172,7 +172,7 @@
             console.log("You Clicked!");
             var newFriend = {
                 name: $("#name").val().trim(),
-                photo: $("#match-img").val().trim(),
+                photo: $("#photo").val().trim(),
                 scores: [slider1.value, slider2.value, slider3.value,slider4.value,slider5.value]
 
 
@@ -186,7 +186,7 @@
 
                     console.log("hi");
                     $("#match-name").text(data.name);
-                    $("#photo").attr("src", data.photo);
+                    $("#match-img").attr("src", data.photo);
                     $("#results-modal").modal("toggle");
                     // $('#results-modal').modal(show);
                 } else console.log("error?")
